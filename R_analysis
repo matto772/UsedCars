@@ -5,32 +5,20 @@ model_year is skewed left and the milage is skewed right
 a coorelation would make sense here between milage and model_year
 there are more newer cars and more cars with fewer milage and there are less older cars and less cars with more milage
 */
-> par(mfrow = c(2, 2))
-> boxplot(test$model_year, main = "Model Year")
-> boxplot(test$milage, main = "Milage")
-> hist(test$model_year, main = "Model Year")
-> hist(test$milage, main = "Milage")
+
 
 
 // summarizing milage and model_year to see where the majority of data lies
-> summary(test$milage)
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    100   24500   57500   66043   95798  405000 
-> summary(test$model_year)
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   1974    2013    2017    2016    2020    2024 
+
 
 
 // storing outliers for milage and model_year columns to remove from data set
-> milageOutliers = boxplot(test$milage, plot=FALSE)$out
-> modelYearOutliers = boxplot(test$model_year, plot=FALSE)$out
+
 
 /* creating a copy of the test data frame
 removing stored outliers from copy of data frame
 */
-> x = test
-> x = x[-which(x$model_year %in% modelYearOutliers),]
-> x = x[-which(x$milage %in% milageOutliers),]
+
 
 
 /*
@@ -38,17 +26,7 @@ summarizing milage and model_year from the new dataset created with outliers rem
 the min for model_year changed but everything else stayed the same, indicating that the outliers were on the lower end of model_year
 everything except for the min changed for the milage, indicating that the outliers were on the upper end of milage
 */
-> summary(x$model_year)
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   2003    2013    2017    2016    2020    2024 
-> summary(x$milage)
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    100   23600   54900   62973   92000  202055
+
 
 
 //new plotting of milage and model_year columns after outlier removal in copied data frame
-> par(mfrow = c(2, 2))
-> boxplot(x$model_year, main = "Model Year")
-> boxplot(x$milage, main = "Milage")
-> hist(x$model_year, main = "Model Year")
-> hist(x$milage, main = "Milage")
