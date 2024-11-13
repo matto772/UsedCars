@@ -1,1 +1,37 @@
+> par(mfrow = c(2, 2))
+> boxplot(test$model_year, main = "Model Year")
+> boxplot(test$milage, main = "Milage")
+> hist(test$model_year, main = "Model Year")
+> hist(test$milage, main = "Milage")
 
+
+> summary(test$milage)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    100   24500   57500   66043   95798  405000 
+> summary(test$model_year)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1974    2013    2017    2016    2020    2024 
+
+
+> milageOutliers = boxplot(test$milage, plot=FALSE)$out
+> modelYearOutliers = boxplot(test$model_year, plot=FALSE)$out
+
+
+> x = test
+> x = x[-which(x$model_year %in% modelYearOutliers),]
+> x = x[-which(x$milage %in% milageOutliers),]
+
+
+> summary(x$model_year)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2003    2013    2017    2016    2020    2024 
+> summary(x$milage)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    100   23600   54900   62973   92000  202055
+
+
+> par(mfrow = c(2, 2))
+> boxplot(x$model_year, main = "Model Year")
+> boxplot(x$milage, main = "Milage")
+> hist(x$model_year, main = "Model Year")
+> hist(x$milage, main = "Milage")
