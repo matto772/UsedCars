@@ -1,32 +1,24 @@
 data and exploratoty analysis of regression of used car prices
-/*
+
 I split the plot window into a 2x2 grid to display boxplots and histograms of the model_year and milage of vehicles to see the outliers and the distribution of data
 model_year is skewed left and the milage is skewed right
-a coorelation would make sense here between milage and model_year
-there are more newer cars and more cars with fewer milage and there are less older cars and less cars with more milage
-*/
+a coorelation would make sense here between milage and model_year because there are more newer cars and more cars with fewer milage and there are less older cars and less cars with more milage
 
 
-
-// summarizing milage and model_year to see where the majority of data lies
-
+I summarized milage and model_year to see where the majority of data was
 
 
-// storing outliers for milage and model_year columns to remove from data set
+I stored outliers for milage and model_year columns so that I could remove them from the data set
 
 
-/* creating a copy of the test data frame
-removing stored outliers from copy of data frame
-*/
+I created a copy of the test data frame and removed the stored outliers from the copy of the data frame
 
 
-
-/*
-summarizing milage and model_year from the new dataset created with outliers removed
+I summarized milage and model_year from the new dataset created with outliers removed
 the min for model_year changed but everything else stayed the same, indicating that the outliers were on the lower end of model_year
 everything except for the min changed for the milage, indicating that the outliers were on the upper end of milage
-*/
 
 
-
-//new plotting of milage and model_year columns after outlier removal in copied data frame
+I then created new plots of milage and model_year columns after the outlier removal in the copied data frame
+the data became less dramtically skewed but still skewed in the same directions
+there were still outliers in the milage column according to the boxplot, but they weren't outlier according to what math determines to be an outlier
