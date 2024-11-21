@@ -40,8 +40,8 @@ boxplot(x$milage, main = "Mileage (Cleaned)", ylab = "Mileage (miles)")
 hist(x$model_year, main = "Model Year (Cleaned)", xlab = "Year", col = "lightblue", breaks = 20)
 hist(x$milage, main = "Mileage (Cleaned)", xlab = "Mileage (miles)", col = "lightgreen", breaks = 20)
 
-# Assuming 'x' is the cleaned dataset from your code
-# Add a dummy target variable 'car_cost' for illustration (replace with actual data)
+# Assuming 'x' is the cleaned dataset
+# Add a dummy target variable 'car_cost' for illustration
 set.seed(123)  # For reproducibility
 x$car_cost <- 20000 - 100 * x$model_year + 0.5 * x$milage + rnorm(nrow(x), mean = 0, sd = 500)
 
