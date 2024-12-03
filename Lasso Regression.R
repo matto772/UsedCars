@@ -1,4 +1,4 @@
-#Jackie Campbell
+# Jackie Campbell
 # Load necessary libraries
 library(tidyverse)
 library(glmnet)  # For Lasso regression
@@ -40,8 +40,8 @@ boxplot(x$milage, main = "Mileage (Cleaned)", ylab = "Mileage (miles)")
 hist(x$model_year, main = "Model Year (Cleaned)", xlab = "Year", col = "lightblue", breaks = 20)
 hist(x$milage, main = "Mileage (Cleaned)", xlab = "Mileage (miles)", col = "lightgreen", breaks = 20)
 
-# Assuming 'x' is the cleaned dataset
-# Add a dummy target variable 'car_cost' for illustration
+# Assuming 'x' is the cleaned dataset from your code
+# Add a dummy target variable 'car_cost' for illustration (replace with actual data)
 set.seed(123)  # For reproducibility
 x$car_cost <- 20000 - 100 * x$model_year + 0.5 * x$milage + rnorm(nrow(x), mean = 0, sd = 500)
 
@@ -79,3 +79,11 @@ cat("Mean Squared Error (MSE) on Test Data:", mse, "\n")
 lasso_coefficients <- coef(lasso_model, s = best_lambda)
 print("Coefficients:")
 print(lasso_coefficients)
+
+# Evaluate model performance
+mse <- mean((y_test - y_pred)^2)
+rmse <- sqrt(mse)  # Calculate Root Mean Squared Error (RMSE)
+
+# Output MSE and RMSE
+cat("Mean Squared Error (MSE) on Test Data:", mse, "\n")
+cat("Root Mean Squared Error (RMSE) on Test Data:", rmse, "\n")
