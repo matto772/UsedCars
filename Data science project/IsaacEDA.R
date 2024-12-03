@@ -1,3 +1,5 @@
+# Isaac Waycott
+
 par(mfrow = c(2, 2))
 boxplot(test$model_year, main = "Model Year")
 boxplot(test$milage, main = "Milage")
